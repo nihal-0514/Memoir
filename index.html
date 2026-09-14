@@ -1,1018 +1,3639 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title> Memoir Café | Coffee - Converstaion - Stories</title>
-        <style>
-            
-            *{margin:0;padding:0;box-sizing:border-box}
-            html{scroll-behavior:smooth}
-            body{font-family:Georgia,'Times New Roman',serif;background:#f7f1e8;color:#3b2920;line-height:1.7}
-            header{background:#2d1b14;color:#fff;padding:5px 7%;position:sticky;top:0;z-index:1000;box-shadow:0 3px 12px rgba(0,0,0,.2)}
-            header h1{font-size:32px;margin-bottom:12px}
-            .header-top{display:flex;align-items:center;justify-content:space-between;width:100%}
-            .header-top h1{margin:5}
-            .header-top img{width:400px;height:150px;object-fit:contain;margin:5;}
-            nav{display:flex;flex-wrap:wrap;gap:22px}
-            nav a{color:#fff;text-decoration:none;font-size:16px;font-weight:bold}
-            nav a{position:relative;transition:.3s}
-            nav a:hover{color:#d8a15d}
-            nav a:after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:#d8a15d;transition:.3s}
-            nav a:hover:after{width:100%}
-            nav a:hover{color:#d8a15d}
-            hr{border:0;border-top:1px solid #d8c5b5;margin:45px 0}
-            main{max-width:1200px;margin:auto}
-            section{padding:75px 7%;scroll-margin-top:100px}
-            section:nth-child(even){background:#efe3d4}
-            h2{font-size:38px;color:#4a2c20;margin-bottom:20px}
-            h3{font-size:25px;color:#684332;margin:25px 0 12px}
-            h4{font-size:21px;color:#7a513c;margin:18px 0 10px}
-            h5,h6{font-size:20px;color:#7a513c;margin:18px 0 10px}
-            p{font-size:17px;margin-bottom:15px}
-            #home{text-align:center;min-height:650px;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(rgba(45,27,20,.78),rgba(45,27,20,.78)),url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80') center/cover;color:#fff}
-            #home p:first-child{letter-spacing:4px;font-size:14px;font-weight:bold}
-            #home h2{font-size:58px;color:#fff;max-width:850px;line-height:1.2;margin:20px 0}
-            #home p{max-width:750px}
-            #home a{display:inline-block;background:#c58b55;color:#fff;text-decoration:none;padding:12px 25px;border-radius:30px;font-weight:bold;margin:5px}
-            #home a:hover{background:#a96e3d}
-            #story p,#archive>p,#events>p{max-width:850px}
-            #tables>article,#st>article,#events>article,#archive>article{display:inline-block;vertical-align:top;width:46%;margin:15px 2% 15px 0;padding:28px;background:#fffaf4;border-radius:15px;box-shadow:0 5px 18px rgba(60,40,25,.1)}
-            article a{display:inline-block;color:#7a4b31;text-decoration:none;font-weight:bold;margin-top:10px}
-            article a:hover{text-decoration:underline}
-            ul,ol{padding-left:30px}
-            li{margin:10px 0}
-            #menu ul{list-style:none;padding:0}
-            #menu li{background:#fffaf4;margin:12px 0;padding:18px 22px;border-radius:12px;box-shadow:0 3px 12px rgba(60,40,25,.08)}
-            #menu strong{font-size:19px;color:#5b3425}
-            #menu p{font-size:15px;margin:4px 0 0}
-            #st>p{margin-bottom:25px}
-            #booking form{max-width:800px;background:#fffaf4;padding:35px;border-radius:18px;box-shadow:0 5px 20px rgba(60,40,25,.12)}
-            fieldset{border:1px solid #d6c0ad;border-radius:12px;padding:25px;margin-bottom:20px}
-            legend{font-weight:bold;font-size:19px;color:#684332;padding:0 10px}
-            label{font-weight:bold}
-            input,select{width:100%;padding:12px;margin-top:7px;border:1px solid #cdb9a7;border-radius:8px;background:#fff;font-family:inherit;font-size:15px}
-            input[type="checkbox"]{width:auto;margin-right:8px}
-            button{background:#6b402c;color:#fff;border:0;padding:14px 30px;border-radius:30px;font-family:inherit;font-size:17px;font-weight:bold;cursor:pointer}
-            button:hover{background:#4d2b20}
-            #contact{background:#2d1b14;color:#fff}
-            #contact h2{color:#fff}
-            footer{background:#1d110d;color:#d9c8bb;text-align:center;}
-            footer h2{color:#fff}
-            footer hr{border-color:#5b4034;margin:0 auto 10px}
-            @media(max-width:768px){header{padding:18px 5%}header h1{font-size:27px}nav{gap:12px}nav a{font-size:14px}section{padding:55px 6%}h2{font-size:32px}#home h2{font-size:40px}#tables>article,#st>article,#events>article,#archive>article{width:100%;margin:12px 0}}
-        
-/* ===== Professional UI Upgrade ===== */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Memoir Café — Coffee, conversations, stories and memories.">
+<title>Memoir Café | Coffee • Conversations • Stories</title>
+
+<style>
 :root{
-  --coffee:#2d1b14;
-  --coffee-2:#4d2b20;
-  --accent:#c58b55;
-  --cream:#f7f1e8;
-  --card:#fffaf4;
-  --text:#3b2920;
-  --muted:#7a6255;
-}
-body{overflow-x:hidden}
-header{
-  padding:10px 6%;
-  backdrop-filter:blur(12px);
-  transition:all .3s ease;
-}
-.header-top{min-height:70px}
-.header-top h1{
-  font-size:34px;
-  letter-spacing:.5px;
-  margin:0!important;
-}
-.header-top h1::before{content:"☕ ";font-size:27px}
-.header-top img{
-  width:180px;height:70px;margin:0!important;
-}
-header.scrolled{
-  background:rgba(45,27,20,.96);
-  box-shadow:0 8px 25px rgba(0,0,0,.28);
-}
-nav{align-items:center;justify-content:center;padding-bottom:4px}
-nav a{padding:8px 2px}
-nav a.active{color:#d8a15d}
-section{transition:background .3s ease}
-section h2,section h3{letter-spacing:.2px}
-#home{
-  position:relative;
-  min-height:720px;
-}
-#home::after{
-  content:"";
-  position:absolute;inset:0;
-  background:radial-gradient(circle at center,transparent 0 25%,rgba(0,0,0,.18));
-  pointer-events:none;
-}
-#home>*{position:relative;z-index:1}
-#home h2{text-shadow:0 3px 18px rgba(0,0,0,.35)}
-#home a{
-  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
-  box-shadow:0 5px 15px rgba(0,0,0,.18);
-}
-#home a:hover{transform:translateY(-3px);box-shadow:0 9px 20px rgba(0,0,0,.25)}
-#tables>article,#st>article,#events>article,#archive>article{
-  transition:transform .25s ease,box-shadow .25s ease;
-  border:1px solid rgba(122,81,60,.08);
-}
-#tables>article:hover,#st>article:hover,#events>article:hover,#archive>article:hover{
-  transform:translateY(-6px);
-  box-shadow:0 12px 28px rgba(60,40,25,.16);
-}
-#menu li{transition:transform .2s ease,box-shadow .2s ease}
-#menu li:hover{transform:translateX(5px);box-shadow:0 7px 18px rgba(60,40,25,.14)}
-#booking form{border:1px solid rgba(122,81,60,.1)}
-input:focus,select:focus{
-  outline:none;border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(197,139,85,.18);
-}
-button{transition:transform .2s ease,box-shadow .2s ease}
-button:hover{transform:translateY(-2px);box-shadow:0 7px 16px rgba(0,0,0,.2)}
-.booking-panel{
-  margin-top:35px;
-  background:var(--card);
-  padding:28px;
-  border-radius:18px;
-  box-shadow:0 5px 20px rgba(60,40,25,.12);
-}
-.booking-toolbar{
-  display:flex;gap:12px;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;margin-bottom:20px;
-}
-.booking-toolbar input{max-width:320px;margin:0}
-.booking-count{
-  display:inline-block;background:#efe3d4;color:#684332;
-  padding:7px 13px;border-radius:20px;font-weight:bold;
-}
-.booking-table-wrap{overflow-x:auto}
-.booking-table{width:100%;border-collapse:collapse;min-width:720px}
-.booking-table th,.booking-table td{
-  padding:13px 12px;text-align:left;border-bottom:1px solid #e3d4c6;
-}
-.booking-table th{background:#4d2b20;color:#fff}
-.booking-table tr:hover td{background:#fbf4ec}
-.status{
-  display:inline-block;padding:4px 10px;border-radius:20px;
-  background:#e4f1e7;color:#28613a;font-size:13px;font-weight:bold;
-}
-.delete-booking{
-  background:#8b4638;padding:7px 12px;font-size:13px;
-  border-radius:18px;
-}
-.empty-bookings{text-align:center;padding:25px;color:var(--muted)}
-.toast{
-  position:fixed;right:25px;bottom:25px;z-index:3000;
-  background:#2d1b14;color:#fff;padding:14px 20px;border-radius:12px;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
-  opacity:0;transform:translateY(15px);pointer-events:none;
-  transition:.3s ease;
-}
-.toast.show{opacity:1;transform:translateY(0)}
-@media(max-width:768px){
-  .header-top h1{font-size:28px}
-  .header-top img{width:120px;height:55px}
-  #home{min-height:650px}
-  .booking-toolbar input{max-width:none}
+  --espresso:#24150f;
+  --coffee:#3b2117;
+  --brown:#684332;
+  --caramel:#c58b55;
+  --gold:#e0b477;
+  --cream:#f8f2e9;
+  --cream2:#efe1d0;
+  --paper:#fffaf4;
+  --ink:#2f211b;
+  --muted:#79685d;
+  --white:#fff;
+  --success:#2e7047;
+  --danger:#914438;
+  --shadow:0 14px 40px rgba(47,33,27,.10);
+  --radius:22px;
 }
 
-        
-/* ===== Compact Header Fix ===== */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.7;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+/* HEADER */
+
 header{
-  padding:7px 5%;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(36,21,15,.97);
+  color:var(--white);
+  padding:12px 5%;
+  box-shadow:0 5px 20px rgba(0,0,0,.15);
+  transition:.3s;
 }
-.header-top{
-  min-height:48px;
+
+header.scrolled{
+  padding:8px 5%;
 }
-.header-top h1{
-  font-size:25px;
-  margin:0!important;
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
-.header-top h1::before{
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.coffee-mark{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:var(--caramel);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+}
+
+.logo-img{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.brand h1{
+  font-size:22px;
+  line-height:1.1;
+}
+
+.brand small{
+  font-size:9px;
+  letter-spacing:2px;
+  color:var(--gold);
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:5px;
+}
+
+nav a{
+  padding:7px 9px;
+  border-radius:10px;
+  font-size:12px;
+  transition:.25s;
+}
+
+nav a:hover,
+nav a.active{
+  background:var(--caramel);
+  color:var(--espresso);
+}
+
+/* GENERAL */
+
+main section{
+  padding:80px 7%;
+  scroll-margin-top:90px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.section-title span{
+  color:var(--caramel);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.section-title h2{
+  font-size:38px;
+  color:var(--espresso);
+  margin:8px 0;
+}
+
+.section-title p{
+  color:var(--muted);
+  max-width:700px;
+  margin:auto;
+}
+
+.btn{
+  display:inline-block;
+  border:0;
+  border-radius:12px;
+  padding:11px 18px;
+  background:var(--caramel);
+  color:var(--espresso);
+  font-weight:bold;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(0,0,0,.12);
+}
+
+.btn.dark{
+  background:var(--espresso);
+  color:var(--white);
+}
+
+.btn.danger{
+  background:var(--danger);
+  color:white;
+}
+
+.btn.secondary{
+  background:var(--cream2);
+  color:var(--coffee);
+}
+
+.card{
+  background:var(--paper);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+/* HERO */
+
+.hero{
+  min-height:86vh;
+  padding:100px 7% !important;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(rgba(36,21,15,.68),rgba(36,21,15,.76)),
+    url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  color:white;
+}
+
+.hero-content{
+  max-width:800px;
+}
+
+.hero small{
+  color:var(--gold);
+  letter-spacing:4px;
+  text-transform:uppercase;
+}
+
+.hero h2{
+  font-size:58px;
+  line-height:1.15;
+  margin:15px 0;
+}
+
+.hero p{
+  font-size:18px;
+  max-width:650px;
+  color:#f4e9df;
+}
+
+.hero-buttons{
+  margin:28px 0;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.hero .stats{
+  display:flex;
+  gap:35px;
+  margin-top:40px;
+  flex-wrap:wrap;
+}
+
+.stat strong{
+  display:block;
+  font-size:27px;
+  color:var(--gold);
+}
+
+.stat span{
+  font-size:12px;
+  color:#eee;
+}
+
+/* STORY */
+
+.story-grid{
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:30px;
+}
+
+.story-text,
+.quote-card{
+  padding:35px;
+}
+
+.quote-card{
+  background:var(--espresso);
+  color:white;
+}
+
+.quote-card strong{
+  color:var(--gold);
+}
+
+/* CARDS */
+
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.info-card{
+  padding:28px;
+  transition:.3s;
+}
+
+.info-card:hover{
+  transform:translateY(-6px);
+}
+
+.info-card .icon{
+  font-size:35px;
+  margin-bottom:12px;
+}
+
+.info-card h3{
+  color:var(--coffee);
+  margin-bottom:8px;
+}
+
+.info-card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* TABLES */
+
+.table-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.table-card{
+  padding:30px;
+  border-radius:var(--radius);
+  background:var(--paper);
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.table-card h3{
+  color:var(--coffee);
+}
+
+.table-card p{
+  color:var(--muted);
+  margin:12px 0 20px;
+}
+
+/* HOW */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:15px;
+}
+
+.step{
+  text-align:center;
+  padding:25px 15px;
+}
+
+.step-number{
+  width:48px;
+  height:48px;
+  margin:auto;
+  border-radius:50%;
+  background:var(--caramel);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:bold;
   font-size:20px;
 }
-.header-top img{
-  width:115px;
-  height:48px;
-  margin:0!important;
+
+/* MENU */
+
+.menu-section{
+  background:var(--cream2);
 }
-header hr{
-  margin:5px 0 7px;
+
+.menu-tools{
+  max-width:850px;
+  margin:0 auto 30px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
-nav{
+
+.menu-search{
+  flex:1;
+  min-width:230px;
+  padding:13px 18px;
+  border:1px solid #d8c5b1;
+  border-radius:30px;
+  background:var(--paper);
+  outline:none;
+}
+
+.menu-search:focus{
+  border-color:var(--caramel);
+}
+
+.category-buttons{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.category-btn{
+  border:1px solid var(--caramel);
+  background:transparent;
+  color:var(--coffee);
+  padding:9px 15px;
+  border-radius:20px;
+}
+
+.category-btn.active,
+.category-btn:hover{
+  background:var(--caramel);
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.menu-item{
+  padding:25px;
+  position:relative;
+  transition:.3s;
+}
+
+.menu-item:hover{
+  transform:translateY(-5px);
+}
+
+.menu-item .emoji{
+  font-size:35px;
+}
+
+.menu-item h3{
+  margin:8px 0 5px;
+  color:var(--coffee);
+}
+
+.menu-item p{
+  color:var(--muted);
+  font-size:13px;
+  min-height:48px;
+}
+
+.price{
+  display:block;
+  color:var(--caramel);
+  font-weight:bold;
+  font-size:19px;
+  margin-top:10px;
+}
+
+.badge{
+  position:absolute;
+  top:15px;
+  right:15px;
+  font-size:9px;
+  background:var(--gold);
+  color:var(--espresso);
+  padding:4px 8px;
+  border-radius:12px;
+  font-weight:bold;
+}
+
+/* PEOPLE / EVENTS */
+
+.people-grid,
+.events-grid,
+.archive-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.people-card,
+.event-card,
+.memory-card{
+  padding:28px;
+}
+
+.event-date{
+  color:var(--caramel);
+  font-weight:bold;
+  letter-spacing:2px;
+  font-size:13px;
+}
+
+/* BOOKING */
+
+.booking-layout{
+  display:grid;
+  grid-template-columns:.75fr 1.25fr;
+  gap:30px;
+  align-items:start;
+}
+
+.booking-info{
+  padding:30px;
+  background:var(--espresso);
+  color:white;
+}
+
+.booking-info h3{
+  color:var(--gold);
+  margin-bottom:15px;
+}
+
+.booking-info li{
+  margin:12px 0;
+  list-style:none;
+}
+
+.booking-form{
+  padding:30px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
   gap:18px;
-  padding-bottom:1px;
 }
-nav a{
-  font-size:14px;
-  padding:3px 1px;
+
+.field{
+  display:flex;
+  flex-direction:column;
 }
-nav a:after{
-  bottom:-3px;
+
+.field.full{
+  grid-column:1/-1;
 }
-section{
-  scroll-margin-top:82px;
+
+.field label{
+  font-weight:bold;
+  margin-bottom:6px;
+  color:var(--coffee);
 }
-@media(max-width:768px){
-  header{
-    padding:7px 4%;
+
+.field input,
+.field select{
+  padding:12px;
+  border:1px solid #d9c8b9;
+  border-radius:10px;
+  background:white;
+  outline:none;
+}
+
+.field input:focus,
+.field select:focus{
+  border-color:var(--caramel);
+}
+
+.total-box{
+  margin-top:20px;
+  padding:18px;
+  background:var(--cream2);
+  border-radius:14px;
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+  font-size:20px;
+}
+
+/* BOOKINGS */
+
+.booking-dashboard{
+  background:var(--cream2);
+}
+
+.booking-tools{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:25px;
+  flex-wrap:wrap;
+}
+
+.booking-search{
+  padding:12px 16px;
+  border:1px solid #d3c0ad;
+  border-radius:25px;
+  min-width:260px;
+  outline:none;
+}
+
+.table-wrap{
+  overflow-x:auto;
+  background:var(--paper);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:1000px;
+}
+
+th,
+td{
+  padding:14px;
+  text-align:left;
+  border-bottom:1px solid #eadfd4;
+  font-size:13px;
+}
+
+th{
+  background:var(--espresso);
+  color:white;
+}
+
+.status{
+  padding:5px 9px;
+  border-radius:12px;
+  background:#dcefe2;
+  color:var(--success);
+  font-size:11px;
+  font-weight:bold;
+}
+
+.status.cancelled{
+  background:#f2d8d5;
+  color:var(--danger);
+}
+
+.empty-bookings{
+  text-align:center;
+  padding:40px;
+  color:var(--muted);
+}
+
+/* CONTACT */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.contact-card{
+  padding:28px;
+  text-align:center;
+}
+
+/* FOOTER */
+
+footer{
+  background:var(--espresso);
+  color:white;
+  text-align:center;
+  padding:35px 7%;
+}
+
+footer strong{
+  color:var(--gold);
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:var(--espresso);
+  color:white;
+  padding:14px 20px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  transform:translateY(100px);
+  opacity:0;
+  transition:.3s;
+  z-index:3000;
+}
+
+.toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* TOP */
+
+#topBtn{
+  position:fixed;
+  right:22px;
+  bottom:85px;
+  width:45px;
+  height:45px;
+  border:0;
+  border-radius:50%;
+  background:var(--caramel);
+  color:var(--espresso);
+  font-size:20px;
+  display:none;
+  z-index:900;
+}
+
+#topBtn.show{
+  display:block;
+}
+
+/* MODALS */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:2000;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(520px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:var(--paper);
+  border-radius:var(--radius);
+  padding:30px;
+  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.modal-box h2{
+  color:var(--coffee);
+  margin-bottom:18px;
+}
+
+.close-modal{
+  position:absolute;
+  top:12px;
+  right:16px;
+  border:0;
+  background:none;
+  font-size:28px;
+  color:var(--muted);
+}
+
+.auth-tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:20px;
+}
+
+.auth-tab{
+  flex:1;
+  padding:10px;
+  border:0;
+  border-radius:10px;
+  background:var(--cream2);
+}
+
+.auth-tab.active{
+  background:var(--caramel);
+}
+
+.auth-form{
+  display:none;
+}
+
+.auth-form.active{
+  display:block;
+}
+
+.auth-form .field{
+  margin-bottom:14px;
+}
+
+.user-bar{
+  display:none;
+  align-items:center;
+  gap:8px;
+  color:var(--gold);
+  font-size:12px;
+}
+
+.user-bar.show{
+  display:flex;
+}
+
+.details-box{
+  line-height:1.6;
+}
+
+.detail-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:8px 0;
+  border-bottom:1px solid #eadfd4;
+}
+
+.detail-row strong{
+  color:var(--coffee);
+}
+
+.policy-box{
+  margin-top:20px;
+  padding:15px;
+  background:var(--cream2);
+  border-radius:12px;
+  font-size:13px;
+}
+
+.confirmation{
+  text-align:center;
+}
+
+.confirmation-icon{
+  font-size:50px;
+  margin-bottom:10px;
+}
+
+.refund{
+  color:var(--success);
+  font-weight:bold;
+}
+
+/* REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:.7s;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+  .grid-4,
+  .table-grid,
+  .menu-grid{
+    grid-template-columns:repeat(2,1fr);
   }
-  .header-top{
-    min-height:42px;
+
+  .steps{
+    grid-template-columns:repeat(3,1fr);
   }
-  .header-top h1{
-    font-size:21px;
+}
+
+@media(max-width:850px){
+  .header-inner{
+    flex-direction:column;
   }
-  .header-top h1::before{
-    font-size:17px;
-  }
-  .header-top img{
-    width:90px;
-    height:40px;
-  }
-  header hr{
-    margin:4px 0 6px;
-  }
+
   nav{
-    gap:10px;
-    justify-content:flex-start;
-    overflow-x:auto;
-    flex-wrap:nowrap;
-    padding-bottom:2px;
+    max-height:180px;
+    overflow:auto;
   }
-  nav a{
-    font-size:12px;
-    white-space:nowrap;
+
+  .story-grid,
+  .booking-layout{
+    grid-template-columns:1fr;
+  }
+
+  .people-grid,
+  .events-grid,
+  .archive-grid,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h2{
+    font-size:42px;
   }
 }
 
-        </style>
-    </head>
-    <body>
-        <header>
-            <div class="header-top">
-                <h1>Memoir Café</h1>
-                <img src="logo.png" alt="Memoir Café Logo">
-            </div>
-            <hr>
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#story">Our Story</a>
-                <a href="#menu">Menu</a>
-                <a href="#tables">Story Tables</a>
-                <a href="#st">Story Tellers</a>
-                <a href="#events">Events</a>
-                <a href="#archive">Memories</a>
-                <a href="#booking">BookIt</a>
-                <a href="#bookings">Bookings</a>
-            </nav>
-        </header>
-        <main>
-            <section id="home">
-                <p>COFFEE • CONVERSATIONS • STORIES </p>
-                <h2>
-                    Every life has a story worth sharing.
-                </h2>
-                <p>
-                    Memoir Café is more than a café.
-                    It is a place where people meet & share experiences and create meaningful memories.
-                </p>
-                <p>
-                    Choose a story table, meet a chat buddy, enjoy your coffee & discover a new perspective.
-                </p>
-                <p>
-                    <a href="#booking">Book a Story</a>
-                </p>
-                <p>
-                    <a href="#tables">Explore Story Tables</a>
-                </p>
-                <hr>
-            </section>
-            <section id="story">
-                <h2>Our Story</h2>
-                <h3>More than a café. A place where stories live.</h3>
-                <p>Modern life gives us countless ways to communicate, but fewer opportunities for slow and meaningful face-to-face conversation.</p>
-                <h4>Our Mission</h4>
-                <p>
-                    To create a physical space where coffee brings people together and conversation create lasting memories.
-                </p>
-                <h5>Our Vision</h5>
-                <p>
-                    To become a community-driven café brandknown for meaningful human connections and storytelling.
-                </p>
-                <hr>
-            </section>
-            <section id="tables">
-                <h3>Story Tables</h3>
-                <p>
-                    Every table represents a different type of conversation.
-                </p>
-                <article>
-                    <h4>🕰️ Wisdom Corner</h4>
-                    <p>
-                        Talk about life lessons, traditions, experiences and wisdom.
-                    </p>
-                    <p>
-                        Ideal for conversations with experienced storytellers and mentors.
-                    </p>
-                    <a href="#booking">Choose Wisdom Corner</a>
-                </article>
-                <article>
-                    <h4>❤️ Heart to Heart</h4>
-                    <p>
-                        Converstaions about friendship, relationships, life and meaningful connections.
-                    </p>
-                    <a href="#booking">Choose Heart to Heart</a>
-                </article>
-                <article>
-                    <h5>✈️ The Wanderer</h5>
-                    <p>
-                        Talk about travel, adventures, cultures and unforgettable journeys.
-                    </p>
-                    <a href="#booking">Choose The Wanderer</a>
-                </article>
-                <article>
-                    <h6>✨ The Dreamer</h6>
-                    <p>
-                        Discuss careers, business, ambitions, failures and achievements.
-                    </p>
-                    <a href="#booking">Choose The Dreamer</a>
-                </article>
-                <hr>
-            </section>
-            <section>
-                <h6>Why Memoir Café?</h6>
-                <ul>
-                    <li>Curated themed conversations</li>
-                    <li>Storyteller matching</li>
-                    <li>Unique café experiences</li>
-                    <li>Consent-based Memory Archive</li>
-                    <li>Story Studio and Podcast Booth</li>
-                    <li>Community events</li>
-                    <li>Cross-generational conversations</li>
-                </ul>
-                <hr>
-            </section>
-            <section>
-                <h2>How it Works?</h2>
-                <ol>
-                    <li>
-                        <h3>Discover</h3>
-                        <p>
-                            Explore different conversation themes and storytellers.
-                        </p>
-                    </li>
-                    <li>
-                        <h3>Book</h3>
-                        <p>Choose your story table, storyteller, date and time.</p>
-                    </li>
-                    <li>
-                        <h4>Preserves</h4>
-                        <p>
-                            With your permission, your conversation can become a part of the digital Memoir Archive.
-                        </p>
-                    </li>
-                </ol>
-                <hr>
-            </section>
-            <section id="menu">
-                <h2>Café Menu</h2>
-                <p>
-                    Something delicious for every chapter.
-                </p>
-                <h3>☕ Coffee</h3>
-                <ul>
-                    <li>
-                        <strong>Memoir Latte - ₹200</strong>
-                        <p>
-                            House espresso, seamed milk & vanilla.
-                        </p>
-                    </li>
-                    <li>
-                        <strong>Convo Mocha - ₹225</strong>
-                        <p>
-                            Espresso, chocolate and creamy milk.
-                        </p>
-                    </li>
-                    <li>
-                        <strong>Classic Cappuccino - ₹180</strong>
-                        <p>
-                            Rich Espresso with textured milk foam.
-                        </p>
-                    </li>
-                </ul>
-                <h3>🥤 Signature Drinks</h3>
-                <ul>
-                    <li>
-                        <strong>Wandere's Brew - ₹220</strong>
-                        <p>Refreshing signature cold coffee.</p>
-                    </li>
-                    <li>
-                        <strong>Dreamer's Cold Coffee - ₹230</strong>
-                        <p>
-                            Chilled coffee with caramel.
-                        </p>
-                    </li>
-                </ul>
-                <h3>🍰 Desserts</h3> 
-                <ul> 
-                    <li> 
-                        <strong>Memory Brownie — ₹190</strong> 
-                        <p>
-                            Warm chocolate brownie served with ice cream. 
-                        </p> 
-                    </li> 
-                    <li> 
-                        <strong>Chapter Cheesecake — ₹240</strong> 
-                        <p> 
-                            Creamy cheesecake with seasonal topping. 
-                        </p> 
-                    </li> 
-                    <li> 
-                        <strong>Signature Tiramisu — ₹250</strong> 
-                        <p> 
-                            Classic coffee-soaked Italian dessert. 
-                        </p> 
-                    </li> 
-                </ul> 
-                <h3>🥪 Snacks</h3> 
-                <ul> 
-                    <li> 
-                        <strong>Conversation Platter — ₹320</strong> 
-                        <p> 
-                            A sharing plate designed for the table. 
-                        </p> 
-                    </li> 
-                    <li> 
-                        <strong>Memoir Sandwich — ₹210</strong> 
-                        <p> 
-                            A grilled café sandwich with house filling. 
-                        </p> 
-                    </li> 
-                </ul>
-                <hr>
-            </section>
-            <section id="st">
-                <h3>Meet Our Storytellers</h3>
-                <p>
-                    Different lives. Different perspectives. One table.
-                </p>
-            </section>
-            <section id="events">
-                <h2>Community Events</h2>
-                <p>
-                    Stories are better when they are shared.
-                </p>
-                <article>
-                    <h3>Stories From Around the World</h3>
-                    <p>
-                        A special evening where travellers and
-                        explorers share their unforgettable journeys,
-                        cultures and experiences.
-                    </p>
-                    <p>
-                        Date: 18 September
-                    </p>
-                    <a href="#booking">Reserve a Seat</a>
-                </article>
-                <article>
-                    <h3>The Failures Behind Success</h3>
-                    <p>
-                        Listen to entrepreneurs and professionals
-                        share the challenges and failures that
-                        shaped their journey.
-                    </p>
-                    <p>
-                        Date: 25 September
-                    </p>
-                    <a href="#booking">Reserve a Seat</a>
-                </article>
-                <article>
-                    <h3>Lessons We Don't Learn in Class</h3>
-                    <p>
-                        A cross-generational conversation about
-                        life lessons, experiences and wisdom.
-                    </p>
-                    <p>
-                        Date: 2 October
-                    </p>
-                    <a href="#booking">Reserve a Seat</a>
-                </article>
-                <hr>
-            </section>
-            <section id="archive">
-                <h2>Memory Archive</h2>
-                <h3>Some conversations deserve to stay.</h3>
-                <p>
-                    With the customer's permission, meaningful
-                    conversations can be preserved as memories
-                    in our digital Memory Archive.
-                </p>
-                <p>
-                    Privacy comes first. Nothing is recorded,
-                    stored or shared without consent.
-                </p>
-                <article>
-                    <h3>🎙️ My First Business Journey</h3>
-                    <p>
-                        A story about the challenges,
-                        failures and lessons behind starting
-                        a first business.
-                    </p>
-                    <p>
-                        Recorded with permission.
-                    </p>
-                </article>
-                <article>
-                    <h3>✈️ The Train Across Europe</h3>
-                    <p>
-                        A memorable travel experience filled
-                        with unexpected adventures and discoveries.
-                    </p>
-                    <p>
-                        Recorded with permission.
-                    </p>
-                </article>
-                <article>
-                    <h3>📚 Lessons From 35 Years</h3>
-                    <p>
-                        Reflections and life lessons from
-                        decades of teaching and meeting students.
-                    </p>
-                    <p>
-                        Recorded with permission.
-                    </p>
-                </article>
-                <hr>
-            </section>
-            <section id="booking">
-                <h2>Book Your Story Table</h2>
-                <p>
-                    Choose your experience, select a date
-                    and reserve your table.
-                </p>
-                <form id="bookingForm">
-                    <fieldset>
-                        <legend>Personal Information</legend>
-                        <label for="name">
-                            Name:
-                        </label>
-                        <br>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Enter your name"
-                            required
-                        >
-                        <br><br>
-                        <label for="email">
-                            Email:
-                        </label>
-                        <br>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="Enter your email"
-                            required
-                        >
-                        <br><br>
-                        <label for="phone">
-                            Phone Number:
-                        </label>
-                        <br>
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            placeholder="Enter your phone number"
-                        >
-                    </fieldset>
-                    <br>
-                    <fieldset>
-                        <legend>Choose Your Experience</legend>
-                        <label for="table">
-                            Story Table:
-                        </label>
-                        <br>
-                        <select id="table" name="table" required>
-                            <option value="">
-                                Select a Story Table
-                            </option>
-                            <option value="wisdom">
-                                Wisdom Corner
-                            </option>
-                            <option value="heart">
-                                Heart to Heart
-                            </option>
-                            <option value="wanderer">
-                                The Wanderer
-                            </option>
-                            <option value="dreamer">
-                                The Dreamer
-                            </option>
-                        </select>
-                        <br><br>
-                        <label for="chatbuddy">
-                            Conversation Type:
-                        </label>
-                        <br>
-                        <select
-                            id="chatbuddy"
-                            name="chatbuddy"
-                            required
-                        >
-                            <option value="">
-                                Select Conversation Type
-                            </option>
-                            <option value="private">
-                                Private Conversation
-                            </option>
-                            <option value="community">
-                                Community Conversation
-                            </option>
-                            <option value="hosted">
-                                Hosted Conversation with a Community Voice
-                            </option>
-                        </select>
-                    </fieldset>
-                    <br>
-                    <fieldset>
-                        <legend>Date & Time</legend>
-                        <label for="date">
-                            Date:
-                        </label>
-                        <br>
-                        <input
-                            type="date"
-                            id="date"
-                            name="date"
-                            required
-                        >
-                        <br><br>
-                        <label for="time">
-                            Time:
-                        </label>
-                        <br>
-                        <select
-                            id="time"
-                            name="time"
-                            required
-                        >
-                            <option value="">
-                                Select Time
-                            </option>
-                            <option>
-                                11:00 AM
-                            </option>
-                            <option>
-                                1:00 PM
-                            </option>
-                            <option>
-                                3:00 PM
-                            </option>
-                            <option>
-                                5:00 PM
-                            </option>
-                            <option>
-                                7:00 PM
-                            </option>
-                            <option>
-                                9:00 PM
-                            </option>
-                        </select>
-                    </fieldset>
-                    <br>
-                    <fieldset>
-                        <legend>Session</legend>
-                        <label for="duration">
-                            Session Duration:
-                        </label>
-                        <br>
-                        <select
-                            id="duration"
-                            name="duration"
-                            required
-                        >
-                            <option value="">
-                                Select Duration
-                            </option>
-                            <option>
-                                30 Minutes — ₹249
-                            </option>
-                            <option>
-                                60 Minutes — ₹399
-                            </option>
-                            <option>
-                                90 Minutes — ₹549
-                            </option>
-                        </select>
-                        <br><br>
-                        <label for="people">
-                            Number of People:
-                        </label>
-                        <br>
-                        <input
-                            type="number"
-                            id="people"
-                            name="people"
-                            min="1"
-                            max="8"
-                            value="1"
-                        >
-                    </fieldset>
-                    <br>
-                    <fieldset>
-                        <legend>Café Add-On</legend>
-                        <label for="addon">
-                            Choose an optional café item:
-                        </label>
-                        <br>
-                        <select
-                            id="addon"
-                            name="addon"
-                        >
-                            <option>
-                                No Add-On
-                            </option>
-                            <option>
-                                Memoir Latte — ₹200
-                            </option>
-                            <option>
-                                Convo Mocha — ₹225
-                            </option>
-                            <option>
-                                Classic Cappuccino — ₹180
-                            </option>
-                            <option>
-                                Memory Brownie — ₹190
-                            </option>
-                            <option>
-                                Chapter Cheesecake — ₹240
-                            </option>
-                            <option>
-                                Conversation Platter — ₹320
-                            </option>
-                        </select>
-                    </fieldset>
-                    <br>
-                    <fieldset>
-                        <legend>Memory Archive</legend>
-                        <input
-                            type="checkbox"
-                            id="consent"
-                            name="consent"
-                        >
-                        <label for="consent">
-                            I give permission for my conversation
-                            to be recorded and preserved in the
-                            Memoir Archive.
-                        </label>
-                        <p>
-                            This is completely optional.
-                        </p>
-                    </fieldset>
-                    <br>
-                    <button type="submit">
-                        Confirm Booking
-                    </button>
-                </form>
-                <hr>
-            </section>
+@media(max-width:600px){
+  main section{
+    padding:60px 5%;
+  }
 
-            <section id="bookings">
-                <h2>Booking Dashboard</h2>
-                <p>View and manage the story-table reservations made on this browser.</p>
-                <div class="booking-panel">
-                    <div class="booking-toolbar">
-                        <span class="booking-count" id="bookingCount">0 Bookings</span>
-                        <input type="search" id="bookingSearch" placeholder="Search bookings...">
-                    </div>
-                    <div class="booking-table-wrap">
-                        <table class="booking-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Story Table</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>People</th>
-                                    <th>Duration</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="bookingList"></tbody>
-                        </table>
-                        <div class="empty-bookings" id="emptyBookings">
-                            No bookings yet. Confirm a booking above to see it here.
-                        </div>
-                    </div>
-                </div>
-            </section>
+  .grid-4,
+  .table-grid,
+  .menu-grid,
+  .steps{
+    grid-template-columns:1fr;
+  }
 
-            <section id="contact">
-                <h2>Contact Memoir Café</h2>
-                <p>
-                    Have a question or want to become a
-                    Community Voice?
-                </p>
-                <p>
-                    📍 Mumbai, Maharashtra
-                </p>
-                <p>
-                    📧 memoircafe@gmail.com
-                </p>
-                <p>
-                    ☎️ +91 8369399221
-                </p>
-                <p>
-                    Opening Hours:
-                    09:00 AM – 11:00 PM
-                </p>
-                
-            </section>
-        </main>
-        <footer>
-            <hr>
-            <h2>☕ Memoir Café</h2>
-            <p>
-                Coffee • Conversations • Stories
-            </p>
-            <p>
-                A café where every conversation becomes a memory.
-            </p>
-            <p>
-                © 2026 Memoir Café
-            </p>
-            <p>
-                Professional Communication Skills Group 12
-            </p>
-        </footer>
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+
+  .hero{
+    min-height:80vh;
+    padding:70px 5% !important;
+  }
+
+  .hero h2{
+    font-size:36px;
+  }
+
+  .hero .stats{
+    gap:20px;
+  }
+
+  .brand h1{
+    font-size:19px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <div class="brand">
+      <div class="coffee-mark">☕</div>
+
+      <div>
+        <h1>Memoir Café</h1>
+        <small>COFFEE • CONVERSATIONS • STORIES</small>
+      </div>
+
+      <img class="logo-img" src="logo.png" alt="Memoir Café Logo">
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#story">Our Story</a>
+      <a href="#why">Why Us</a>
+      <a href="#tables">Story Tables</a>
+      <a href="#how">How It Works</a>
+      <a href="#menu">Menu</a>
+      <a href="#st">Storytellers</a>
+      <a href="#events">Events</a>
+      <a href="#archive">Memories</a>
+      <a href="#booking" id="bookNav">Book a Table</a>
+      <a href="#bookings" id="historyNav">My Bookings</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="user-bar" id="userBar">
+      <span id="userGreeting"></span>
+      <button class="btn secondary" id="logoutBtn">Logout</button>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<!-- HOME -->
+
+<section id="home" class="hero">
+  <div class="hero-content">
+
+    <small>Welcome to Memoir Café</small>
+
+    <h2>Every life has a story worth sharing.</h2>
+
+    <p>
+      A warm café where coffee brings people together,
+      conversations create connections, and stories become memories.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#booking" class="btn" id="heroBook">☕ Book a Story</a>
+      <a href="#tables" class="btn dark">Explore Story Tables</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>4</strong>
+        <span>Story Tables</span>
+      </div>
+
+      <div class="stat">
+        <strong>∞</strong>
+        <span>Stories to Share</span>
+      </div>
+
+      <div class="stat">
+        <strong>1</strong>
+        <span>Place to Connect</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- STORY -->
+
+<section id="story" class="reveal">
+
+  <div class="section-title">
+    <span>Our Beginning</span>
+    <h2>Our Story</h2>
+    <p>A café built around something more valuable than coffee — human connection.</p>
+  </div>
+
+  <div class="story-grid">
+
+    <div class="story-text card">
+      <p>
+        Memoir Café was created with one simple belief:
+        everyone has a story worth hearing.
+      </p>
+
+      <br>
+
+      <p>
+        In a world filled with notifications and busy schedules,
+        we wanted to create a physical space where people could slow down,
+        enjoy a cup of coffee and have meaningful conversations.
+      </p>
+
+      <br>
+
+      <p>
+        Whether it is a life lesson, a travel adventure,
+        a dream, a failure or simply a conversation with someone new,
+        every story has the power to create a connection.
+      </p>
+    </div>
+
+    <div class="quote-card card">
+      <h3>Our Mission</h3>
+      <p>
+        To create a welcoming café where coffee brings people together
+        and conversations create lasting memories.
+      </p>
+
+      <br>
+
+      <strong>Our Vision</strong>
+      <p>
+        To become a community-driven café known for meaningful
+        conversations, storytelling and human connection.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- WHY US -->
+
+<section id="why" class="reveal">
+
+  <div class="section-title">
+    <span>The Memoir Experience</span>
+    <h2>Why Us?</h2>
+  </div>
+
+  <div class="grid-4">
+
+    <div class="info-card card">
+      <div class="icon">💬</div>
+      <h3>Curated Conversations</h3>
+      <p>
+        Conversation themes designed to make meeting new people easier.
+      </p>
+    </div>
+
+    <div class="info-card card">
+      <div class="icon">🧩</div>
+      <h3>Story Matching</h3>
+      <p>
+        Choose a Story Table based on the kind of conversation you want.
+      </p>
+    </div>
+
+    <div class="info-card card">
+      <div class="icon">📖</div>
+      <h3>Memory Archive</h3>
+      <p>
+        Preserve meaningful moments only when you choose to give consent.
+      </p>
+    </div>
+
+    <div class="info-card card">
+      <div class="icon">🎙️</div>
+      <h3>Story Studio</h3>
+      <p>
+        A space for creators, speakers and storytellers to share their work.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TABLES -->
+
+<section id="tables" class="reveal">
+
+  <div class="section-title">
+    <span>Choose Your Conversation</span>
+    <h2>Story Tables</h2>
+    <p>Every table has a different kind of story waiting for you.</p>
+  </div>
+
+  <div class="table-grid">
+
+    <div class="table-card">
+      <div>
+        <h3>📚 Wisdom Corner</h3>
+        <p>
+          Life lessons, traditions, experiences and advice
+          from people who have walked different paths.
+        </p>
+      </div>
+
+      <a href="#booking" class="btn" data-table="Wisdom Corner">
+        Choose this table →
+      </a>
+    </div>
+
+    <div class="table-card">
+      <div>
+        <h3>❤️ Heart to Heart</h3>
+        <p>
+          Friendship, relationships, life, connections
+          and honest conversations.
+        </p>
+      </div>
+
+      <a href="#booking" class="btn" data-table="Heart to Heart">
+        Choose this table →
+      </a>
+    </div>
+
+    <div class="table-card">
+      <div>
+        <h3>🌍 The Wanderer</h3>
+        <p>
+          Travel, adventures, cultures and stories
+          from different corners of the world.
+        </p>
+      </div>
+
+      <a href="#booking" class="btn" data-table="The Wanderer">
+        Choose this table →
+      </a>
+    </div>
+
+    <div class="table-card">
+      <div>
+        <h3>💡 The Dreamer</h3>
+        <p>
+          Careers, businesses, ambitions, failures,
+          success and future dreams.
+        </p>
+      </div>
+
+      <a href="#booking" class="btn" data-table="The Dreamer">
+        Choose this table →
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- HOW -->
+
+<section id="how" class="reveal">
+
+  <div class="section-title">
+    <span>Your Journey</span>
+    <h2>How It Works</h2>
+  </div>
+
+  <div class="steps">
+
+    <div class="step card">
+      <div class="step-number">1</div>
+      <h3>Discover</h3>
+      <p>Explore the different kinds of conversations.</p>
+    </div>
+
+    <div class="step card">
+      <div class="step-number">2</div>
+      <h3>Choose</h3>
+      <p>Select the Story Table that interests you.</p>
+    </div>
+
+    <div class="step card">
+      <div class="step-number">3</div>
+      <h3>Book</h3>
+      <p>Select your date, time and session duration.</p>
+    </div>
+
+    <div class="step card">
+      <div class="step-number">4</div>
+      <h3>Connect</h3>
+      <p>Enjoy your coffee and meaningful conversation.</p>
+    </div>
+
+    <div class="step card">
+      <div class="step-number">5</div>
+      <h3>Preserve</h3>
+      <p>Save your memory only if you give consent.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MENU -->
+
+<section id="menu" class="menu-section reveal">
+
+  <div class="section-title">
+    <span>Something For Every Story</span>
+    <h2>Café Menu</h2>
+    <p>Good conversations deserve good coffee and good food.</p>
+  </div>
+
+  <div class="menu-tools">
+
+    <input
+      type="text"
+      id="menuSearch"
+      class="menu-search"
+      placeholder="🔎 Search the menu..."
+    >
+
+    <div class="category-buttons">
+
+      <button class="category-btn active" data-category="all">
+        All
+      </button>
+
+      <button class="category-btn" data-category="coffee">
+        ☕ Coffee
+      </button>
+
+      <button class="category-btn" data-category="drinks">
+        🧊 Drinks
+      </button>
+
+      <button class="category-btn" data-category="desserts">
+        🍰 Desserts
+      </button>
+
+      <button class="category-btn" data-category="snacks">
+        🥪 Snacks
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="menu-grid" id="menuGrid">
+
+    <div class="menu-item card" data-category="coffee" data-name="Memoir Latte">
+      <span class="emoji">☕</span>
+      <span class="badge">BESTSELLER</span>
+      <h3>Memoir Latte</h3>
+      <p>Silky espresso and steamed milk for slow conversations.</p>
+      <span class="price">₹200</span>
+    </div>
+
+    <div class="menu-item card" data-category="coffee" data-name="Convo Mocha">
+      <span class="emoji">🍫</span>
+      <h3>Convo Mocha</h3>
+      <p>Rich coffee blended with chocolate for sweet conversations.</p>
+      <span class="price">₹225</span>
+    </div>
+
+    <div class="menu-item card" data-category="coffee" data-name="Classic Cappuccino">
+      <span class="emoji">☕</span>
+      <h3>Classic Cappuccino</h3>
+      <p>Classic espresso with creamy foam and a comforting finish.</p>
+      <span class="price">₹180</span>
+    </div>
+
+    <div class="menu-item card" data-category="coffee" data-name="Espresso Chapter">
+      <span class="emoji">☕</span>
+      <span class="badge">SIGNATURE</span>
+      <h3>Espresso Chapter</h3>
+      <p>A bold espresso for people who like their stories strong.</p>
+      <span class="price">₹150</span>
+    </div>
+
+    <div class="menu-item card" data-category="coffee" data-name="Caramel Memory Latte">
+      <span class="emoji">🍮</span>
+      <h3>Caramel Memory Latte</h3>
+      <p>Warm espresso with caramel sweetness and creamy milk.</p>
+      <span class="price">₹230</span>
+    </div>
+
+    <div class="menu-item card" data-category="coffee" data-name="Hazelnut Conversation">
+      <span class="emoji">🌰</span>
+      <h3>Hazelnut Conversation</h3>
+      <p>A smooth hazelnut coffee made for long conversations.</p>
+      <span class="price">₹240</span>
+    </div>
+
+    <div class="menu-item card" data-category="drinks" data-name="Wanderer's Brew">
+      <span class="emoji">🌍</span>
+      <h3>Wanderer's Brew</h3>
+      <p>A refreshing signature drink inspired by travellers.</p>
+      <span class="price">₹220</span>
+    </div>
+
+    <div class="menu-item card" data-category="drinks" data-name="Dreamer's Cold Coffee">
+      <span class="emoji">🧊</span>
+      <span class="badge">POPULAR</span>
+      <h3>Dreamer's Cold Coffee</h3>
+      <p>Cold, creamy and refreshing for ambitious dreamers.</p>
+      <span class="price">₹230</span>
+    </div>
+
+    <div class="menu-item card" data-category="drinks" data-name="Midnight Mocha">
+      <span class="emoji">🌙</span>
+      <h3>Midnight Mocha</h3>
+      <p>Chocolate and coffee combined into a rich chilled drink.</p>
+      <span class="price">₹250</span>
+    </div>
+
+    <div class="menu-item card" data-category="drinks" data-name="Vanilla Cloud Coffee">
+      <span class="emoji">☁️</span>
+      <h3>Vanilla Cloud Coffee</h3>
+      <p>Light vanilla sweetness with a creamy coffee base.</p>
+      <span class="price">₹240</span>
+    </div>
+
+    <div class="menu-item card" data-category="drinks" data-name="Iced Caramel Story">
+      <span class="emoji">🥤</span>
+      <h3>Iced Caramel Story</h3>
+      <p>Chilled coffee with caramel and a smooth finish.</p>
+      <span class="price">₹250</span>
+    </div>
+
+    <div class="menu-item card" data-category="desserts" data-name="Memory Brownie">
+      <span class="emoji">🍫</span>
+      <h3>Memory Brownie</h3>
+      <p>Warm chocolate brownie made for memorable moments.</p>
+      <span class="price">₹190</span>
+    </div>
+
+    <div class="menu-item card" data-category="desserts" data-name="Chapter Cheesecake">
+      <span class="emoji">🍰</span>
+      <h3>Chapter Cheesecake</h3>
+      <p>Creamy cheesecake with a soft and delicate finish.</p>
+      <span class="price">₹240</span>
+    </div>
+
+    <div class="menu-item card" data-category="desserts" data-name="Signature Tiramisu">
+      <span class="emoji">🍮</span>
+      <span class="badge">SIGNATURE</span>
+      <h3>Signature Tiramisu</h3>
+      <p>Classic coffee-flavoured dessert with a rich creamy layer.</p>
+      <span class="price">₹250</span>
+    </div>
+
+    <div class="menu-item card" data-category="desserts" data-name="Caramel Walnut Cake">
+      <span class="emoji">🍰</span>
+      <h3>Caramel Walnut Cake</h3>
+      <p>Soft cake with caramel and crunchy walnut pieces.</p>
+      <span class="price">₹220</span>
+    </div>
+
+    <div class="menu-item card" data-category="desserts" data-name="Chocolate Story Jar">
+      <span class="emoji">🍫</span>
+      <h3>Chocolate Story Jar</h3>
+      <p>Layers of chocolate dessert served in a charming jar.</p>
+      <span class="price">₹210</span>
+    </div>
+
+    <div class="menu-item card" data-category="desserts" data-name="Cafe Cookie Stack">
+      <span class="emoji">🍪</span>
+      <h3>Café Cookie Stack</h3>
+      <p>A small stack of freshly baked café-style cookies.</p>
+      <span class="price">₹160</span>
+    </div>
+
+    <div class="menu-item card" data-category="snacks" data-name="Conversation Platter">
+      <span class="emoji">🥪</span>
+      <span class="badge">SHAREABLE</span>
+      <h3>Conversation Platter</h3>
+      <p>A selection of café snacks made for sharing.</p>
+      <span class="price">₹320</span>
+    </div>
+
+    <div class="menu-item card" data-category="snacks" data-name="Memoir Sandwich">
+      <span class="emoji">🥪</span>
+      <h3>Memoir Sandwich</h3>
+      <p>A fresh and filling sandwich for a relaxed café visit.</p>
+      <span class="price">₹210</span>
+    </div>
+
+    <div class="menu-item card" data-category="snacks" data-name="Cheese Herb Toast">
+      <span class="emoji">🍞</span>
+      <h3>Cheese & Herb Toast</h3>
+      <p>Crispy toast topped with cheese and aromatic herbs.</p>
+      <span class="price">₹180</span>
+    </div>
+
+    <div class="menu-item card" data-category="snacks" data-name="Cafe Club Sandwich">
+      <span class="emoji">🥪</span>
+      <h3>Café Club Sandwich</h3>
+      <p>A satisfying layered sandwich for a complete café meal.</p>
+      <span class="price">₹260</span>
+    </div>
+
+    <div class="menu-item card" data-category="snacks" data-name="Loaded Potato Wedges">
+      <span class="emoji">🥔</span>
+      <h3>Loaded Potato Wedges</h3>
+      <p>Crispy potato wedges served with delicious toppings.</p>
+      <span class="price">₹220</span>
+    </div>
+
+    <div class="menu-item card" data-category="snacks" data-name="Mini Croissant Plate">
+      <span class="emoji">🥐</span>
+      <h3>Mini Croissant Plate</h3>
+      <p>Fresh mini croissants served as a light café snack.</p>
+      <span class="price">₹200</span>
+    </div>
+
+  </div>
+
+  <p id="menuEmpty" style="display:none;text-align:center;margin-top:30px;color:var(--muted);">
+    No menu items found.
+  </p>
+
+</section>
+
+
+<!-- STORYTELLERS -->
+
+<section id="st" class="reveal">
+
+  <div class="section-title">
+    <span>Meet The Voices</span>
+    <h2>Storytellers</h2>
+  </div>
+
+  <div class="people-grid">
+
+    <div class="people-card card">
+      <h3>📚 The Mentor</h3>
+      <p>Mentor • Wisdom Corner</p>
+      <br>
+      <p>Sharing experiences, lessons and perspectives from life.</p>
+    </div>
+
+    <div class="people-card card">
+      <h3>🌍 The Explorer</h3>
+      <p>Traveller • The Wanderer</p>
+      <br>
+      <p>Stories from different destinations and cultures.</p>
+    </div>
+
+    <div class="people-card card">
+      <h3>💼 The Builder</h3>
+      <p>Professional • The Dreamer</p>
+      <br>
+      <p>Career journeys, failures, ambitions and achievements.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- EVENTS -->
+
+<section id="events" class="reveal">
+
+  <div class="section-title">
+    <span>What's Happening</span>
+    <h2>Events</h2>
+  </div>
+
+  <div class="events-grid">
+
+    <div class="event-card card">
+      <div class="event-date">18 SEPTEMBER</div>
+      <h3>Stories From Around the World</h3>
+      <p>Travel stories, cultures and unforgettable journeys.</p>
+      <br>
+      <a href="#booking" class="btn">Reserve a Seat</a>
+    </div>
+
+    <div class="event-card card">
+      <div class="event-date">25 SEPTEMBER</div>
+      <h3>The Failures Behind Success</h3>
+      <p>Real lessons from failures that shaped success.</p>
+      <br>
+      <a href="#booking" class="btn">Reserve a Seat</a>
+    </div>
+
+    <div class="event-card card">
+      <div class="event-date">2 OCTOBER</div>
+      <h3>Lessons We Don't Learn in Class</h3>
+      <p>Life lessons beyond textbooks and classrooms.</p>
+      <br>
+      <a href="#booking" class="btn">Reserve a Seat</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ARCHIVE -->
+
+<section id="archive" class="reveal">
+
+  <div class="section-title">
+    <span>Moments Worth Remembering</span>
+    <h2>Memory Archive</h2>
+    <p>
+      Nothing is recorded, stored or shared without your consent.
+    </p>
+  </div>
+
+  <div class="archive-grid">
+
+    <div class="memory-card card">
+      <h3>“A stranger became a mentor.”</h3>
+      <p>
+        A simple conversation turned into a life-changing piece of advice.
+      </p>
+    </div>
+
+    <div class="memory-card card">
+      <h3>“We planned our next adventure.”</h3>
+      <p>
+        Two travellers discovered that they shared the same dream destination.
+      </p>
+    </div>
+
+    <div class="memory-card card">
+      <h3>“Failure became a beginning.”</h3>
+      <p>
+        One entrepreneur shared how their biggest failure became their best lesson.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BOOKING -->
+
+<section id="booking" class="reveal">
+
+  <div class="section-title">
+    <span>Reserve Your Moment</span>
+    <h2>Book a Table</h2>
+    <p id="bookingLoginMessage">
+      Login is required before making a booking.
+    </p>
+  </div>
+
+  <div class="booking-layout">
+
+    <aside class="booking-info card">
+
+      <h3>☕ Your Memoir Experience</h3>
+
+      <ul>
+        <li>✓ 30, 60 or 90 minute sessions</li>
+        <li>✓ Four unique Story Tables</li>
+        <li>✓ Optional café add-ons</li>
+        <li>✓ Memory Archive with consent</li>
+        <li>✓ Booking history available after login</li>
+        <li>✓ Easy cancellation policy</li>
+      </ul>
+
+      <div class="policy-box">
+        <strong>Cancellation Policy</strong>
+        <br><br>
+        Cancel 24 or more hours before your booking:
+        <strong>₹50 cancellation fee</strong>.
+        <br><br>
+        Cancel less than 24 hours before your booking:
+        <strong>₹0 refund</strong>.
+      </div>
+
+    </aside>
+
+
+    <form class="booking-form card" id="bookingForm">
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>Full Name *</label>
+          <input type="text" id="name" required>
+        </div>
+
+        <div class="field">
+          <label>Email *</label>
+          <input type="email" id="email" required>
+        </div>
+
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" id="phone">
+        </div>
+
+        <div class="field">
+          <label>Number of People *</label>
+          <input type="number" id="people" min="1" max="8" value="1" required>
+        </div>
+
+        <div class="field">
+          <label>Story Table *</label>
+
+          <select id="table" required>
+            <option value="">Choose a table</option>
+            <option>Wisdom Corner</option>
+            <option>Heart to Heart</option>
+            <option>The Wanderer</option>
+            <option>The Dreamer</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Conversation Type *</label>
+
+          <select id="chatbuddy" required>
+            <option value="">Choose type</option>
+            <option>Private Conversation</option>
+            <option>Community Conversation</option>
+            <option>Hosted Conversation with a Community Voice</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Date *</label>
+          <input type="date" id="date" required>
+        </div>
+
+        <div class="field">
+          <label>Time *</label>
+
+          <select id="time" required>
+            <option value="">Choose time</option>
+            <option>11:00 AM</option>
+            <option>1:00 PM</option>
+            <option>3:00 PM</option>
+            <option>5:00 PM</option>
+            <option>7:00 PM</option>
+            <option>9:00 PM</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Session *</label>
+
+          <select id="duration" required>
+            <option value="">Choose duration</option>
+            <option data-price="249">30 Minutes — ₹249</option>
+            <option data-price="399">60 Minutes — ₹399</option>
+            <option data-price="549">90 Minutes — ₹549</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Café Add-On</label>
+
+          <select id="addon">
+            <option data-price="0">No Add-On — ₹0</option>
+            <option data-price="200">Memoir Latte — ₹200</option>
+            <option data-price="225">Convo Mocha — ₹225</option>
+            <option data-price="180">Classic Cappuccino — ₹180</option>
+            <option data-price="230">Caramel Memory Latte — ₹230</option>
+            <option data-price="190">Memory Brownie — ₹190</option>
+            <option data-price="240">Chapter Cheesecake — ₹240</option>
+            <option data-price="320">Conversation Platter — ₹320</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label>
+            <input type="checkbox" id="consent">
+            I agree to preserve this memory in the Memory Archive.
+          </label>
+        </div>
+
+      </div>
+
+      <div class="total-box">
+        <span>Total</span>
+        <span id="totalPrice">₹0</span>
+      </div>
+
+      <br>
+
+      <button class="btn" type="submit">
+        Confirm Booking →
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+<!-- BOOKINGS -->
+
+<section id="bookings" class="booking-dashboard reveal">
+
+  <div class="section-title">
+    <span>Your Reservations</span>
+    <h2>My Bookings</h2>
+    <p>
+      Your confirmed and cancelled bookings are displayed here.
+    </p>
+  </div>
+
+  <div id="notLoggedInBookings" class="card empty-bookings">
+
+    <h3>🔐 Login Required</h3>
+
+    <p>
+      Please login or register to view your booking history.
+    </p>
+
+    <br>
+
+    <button class="btn" id="loginFromHistory">
+      Login / Register
+    </button>
+
+  </div>
+
+
+  <div id="loggedInBookings" style="display:none;">
+
+    <div class="booking-tools">
+
+      <div>
+        <strong id="bookingCount">0 Bookings</strong>
+        <br>
+        <span id="bookingUserText"></span>
+      </div>
+
+      <input
+        type="text"
+        id="bookingSearch"
+        class="booking-search"
+        placeholder="🔎 Search your bookings..."
+      >
+
+    </div>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Table</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>People</th>
+            <th>Duration</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="bookingList"></tbody>
+
+      </table>
+
+    </div>
+
+    <div id="emptyBookings" class="empty-bookings" style="display:none;">
+      <h3>📖 No bookings found</h3>
+      <p>Your reservations will appear here after booking.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="reveal">
+
+  <div class="section-title">
+    <span>Come Say Hello</span>
+    <h2>Contact</h2>
+  </div>
+
+  <div class="contact-grid">
+
+    <div class="contact-card card">
+      <h3>📍 Location</h3>
+      <p>Mumbai, Maharashtra</p>
+    </div>
+
+    <div class="contact-card card">
+      <h3>✉️ Email</h3>
+      <p>memoircafe@gmail.com</p>
+    </div>
+
+    <div class="contact-card card">
+      <h3>🕐 Hours</h3>
+      <p>Monday–Sunday</p>
+      <p>09:00 AM – 11:00 PM</p>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <strong>Memoir Café</strong>
+
+  <p>COFFEE • CONVERSATIONS • STORIES</p>
+
+  <p>
+    A café where every conversation becomes a memory.
+  </p>
+
+  <br>
+
+  <p>
+    © 2026 Memoir Café • Professional Communication Skills Group 12
+  </p>
+
+</footer>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
+
+<button id="topBtn" title="Back to top">↑</button>
+
+
+<!-- AUTH MODAL -->
+
+<div class="modal" id="authModal">
+
+  <div class="modal-box">
+
+    <button class="close-modal" data-close="authModal">×</button>
+
+    <h2>☕ Welcome to Memoir Café</h2>
+
+    <p style="color:var(--muted);margin-bottom:18px;">
+      Login or create an account to book a table and view your booking history.
+    </p>
+
+    <div class="auth-tabs">
+
+      <button class="auth-tab active" data-auth="login">
+        Login
+      </button>
+
+      <button class="auth-tab" data-auth="register">
+        Register
+      </button>
+
+    </div>
+
+
+    <!-- LOGIN -->
+
+    <form class="auth-form active" id="loginForm">
+
+      <div class="field">
+        <label>Email *</label>
+        <input type="email" id="loginEmail" required>
+      </div>
+
+      <div class="field">
+        <label>Password *</label>
+        <input type="password" id="loginPassword" required>
+      </div>
+
+      <button class="btn" type="submit">
+        Login →
+      </button>
+
+    </form>
+
+
+    <!-- REGISTER -->
+
+    <form class="auth-form" id="registerForm">
+
+      <div class="field">
+        <label>Full Name *</label>
+        <input type="text" id="registerName" required>
+      </div>
+
+      <div class="field">
+        <label>Email *</label>
+        <input type="email" id="registerEmail" required>
+      </div>
+
+      <div class="field">
+        <label>Phone</label>
+        <input type="tel" id="registerPhone">
+      </div>
+
+      <div class="field">
+        <label>Password *</label>
+        <input type="password" id="registerPassword" required>
+      </div>
+
+      <div class="field">
+        <label>Confirm Password *</label>
+        <input type="password" id="registerConfirm" required>
+      </div>
+
+      <button class="btn" type="submit">
+        Create Account →
+      </button>
+
+    </form>
+
     
+  </div>
+
+</div>
+
+
+<!-- BOOKING DETAILS MODAL -->
+
+<div class="modal" id="detailsModal">
+
+  <div class="modal-box">
+
+    <button class="close-modal" data-close="detailsModal">×</button>
+
+    <h2>☕ Booking Details</h2>
+
+    <div id="bookingDetailsContent" class="details-box"></div>
+
+  </div>
+
+</div>
+
+
+<!-- CONFIRMATION MODAL -->
+
+<div class="modal" id="confirmationModal">
+
+  <div class="modal-box confirmation">
+
+    <button class="close-modal" data-close="confirmationModal">×</button>
+
+    <div class="confirmation-icon">☕</div>
+
+    <h2>Booking Confirmed!</h2>
+
+    <p>Your Memoir Café experience has been reserved.</p>
+
+    <br>
+
+    <div id="confirmationContent"></div>
+
+    <br>
+
+    <button class="btn" data-close="confirmationModal">
+      Done
+    </button>
+
+  </div>
+
+</div>
+
+
 <script>
+
 document.addEventListener("DOMContentLoaded", () => {
-    const header = document.querySelector("header");
-    const navLinks = [...document.querySelectorAll("nav a")];
-    const sections = [...document.querySelectorAll("main section[id]")];
-    const form = document.getElementById("bookingForm");
-    const bookingList = document.getElementById("bookingList");
-    const emptyBookings = document.getElementById("emptyBookings");
-    const bookingCount = document.getElementById("bookingCount");
-    const bookingSearch = document.getElementById("bookingSearch");
-    const toast = document.createElement("div");
 
-    toast.className = "toast";
-    document.body.appendChild(toast);
+  const header = document.querySelector("header");
+  const navLinks = [...document.querySelectorAll("nav a")];
+  const sections = [...document.querySelectorAll("main section[id]")];
 
-    // Header shrink effect
-    window.addEventListener("scroll", () => {
-        header.classList.toggle("scrolled", window.scrollY > 30);
+  const form = document.getElementById("bookingForm");
+  const bookingList = document.getElementById("bookingList");
+  const emptyBookings = document.getElementById("emptyBookings");
+  const bookingCount = document.getElementById("bookingCount");
+  const bookingSearch = document.getElementById("bookingSearch");
 
-        let current = "home";
-        sections.forEach(section => {
-            const top = section.getBoundingClientRect().top;
-            if (top <= 130) current = section.id;
-        });
+  const toast = document.getElementById("toast");
+  const topBtn = document.getElementById("topBtn");
 
-        navLinks.forEach(link => {
-            link.classList.toggle("active", link.getAttribute("href") === "#" + current);
-        });
-    });
+  const dateInput = document.getElementById("date");
+  const durationInput = document.getElementById("duration");
+  const addonInput = document.getElementById("addon");
+  const totalPrice = document.getElementById("totalPrice");
 
-    // Smooth navigation with header offset
-    navLinks.forEach(link => {
-        link.addEventListener("click", e => {
-            const target = document.querySelector(link.getAttribute("href"));
-            if (!target) return;
-            e.preventDefault();
-            const y = target.getBoundingClientRect().top + window.scrollY - header.offsetHeight - 10;
-            window.scrollTo({top:y, behavior:"smooth"});
-        });
-    });
+  const authModal = document.getElementById("authModal");
 
-    function showToast(message) {
-        toast.textContent = message;
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2800);
+  let activeCategory = "all";
+
+
+  /* =========================
+     TOAST
+  ========================= */
+
+  function showToast(message){
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(() => {
+      toast.classList.remove("show");
+    },2800);
+  }
+
+
+  /* =========================
+     STORAGE
+  ========================= */
+
+  function getUsers(){
+
+    try{
+      return JSON.parse(
+        localStorage.getItem("memoirUsers") || "[]"
+      );
+    }
+    catch{
+      return [];
     }
 
-    function getBookings() {
-        return JSON.parse(localStorage.getItem("memoirBookings") || "[]");
+  }
+
+
+  function saveUsers(users){
+
+    localStorage.setItem(
+      "memoirUsers",
+      JSON.stringify(users)
+    );
+
+  }
+
+
+  function getCurrentUser(){
+
+    try{
+      return JSON.parse(
+        localStorage.getItem("memoirCurrentUser") || "null"
+      );
+    }
+    catch{
+      return null;
     }
 
-    function saveBookings(bookings) {
-        localStorage.setItem("memoirBookings", JSON.stringify(bookings));
+  }
+
+
+  function setCurrentUser(user){
+
+    if(user){
+      localStorage.setItem(
+        "memoirCurrentUser",
+        JSON.stringify(user)
+      );
+    }
+    else{
+      localStorage.removeItem("memoirCurrentUser");
     }
 
-    function escapeHTML(value) {
-        return String(value).replace(/[&<>"']/g, char => ({
-            "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
-        }[char]));
+  }
+
+
+  function getBookings(){
+
+    try{
+      return JSON.parse(
+        localStorage.getItem("memoirBookings") || "[]"
+      );
+    }
+    catch{
+      return [];
     }
 
-    function renderBookings(filter = "") {
-        const bookings = getBookings();
-        const query = filter.toLowerCase().trim();
+  }
 
-        const filtered = bookings.filter(b =>
-            [b.name,b.table,b.date,b.time,b.people,b.duration]
-                .join(" ").toLowerCase().includes(query)
+
+  function saveBookings(bookings){
+
+    localStorage.setItem(
+      "memoirBookings",
+      JSON.stringify(bookings)
+    );
+
+  }
+
+
+  /* =========================
+     ESCAPE HTML
+  ========================= */
+
+  function escapeHTML(value){
+
+    return String(value ?? "").replace(
+      /[&<>"']/g,
+      char => ({
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+      }[char])
+    );
+
+  }
+
+
+  /* =========================
+     AUTH UI
+  ========================= */
+
+  function updateUserUI(){
+
+    const user = getCurrentUser();
+
+    const userBar = document.getElementById("userBar");
+    const userGreeting = document.getElementById("userGreeting");
+
+    if(user){
+
+      userBar.classList.add("show");
+
+      userGreeting.textContent =
+        `Hi, ${user.name.split(" ")[0]} 👋`;
+
+      document.getElementById("name").value =
+        user.name;
+
+      document.getElementById("email").value =
+        user.email;
+
+      if(user.phone){
+        document.getElementById("phone").value =
+          user.phone;
+      }
+
+    }
+    else{
+
+      userBar.classList.remove("show");
+
+    }
+
+    updateBookingSection();
+
+  }
+
+
+  function updateBookingSection(){
+
+    const user = getCurrentUser();
+
+    const notLogged =
+      document.getElementById("notLoggedInBookings");
+
+    const logged =
+      document.getElementById("loggedInBookings");
+
+    const message =
+      document.getElementById("bookingLoginMessage");
+
+    if(user){
+
+      notLogged.style.display = "none";
+      logged.style.display = "block";
+
+      message.textContent =
+        `Welcome ${user.name}! Choose your table and reserve your experience.`;
+
+      document.getElementById("bookingUserText").textContent =
+        `Logged in as ${user.email}`;
+
+      renderBookings();
+
+    }
+    else{
+
+      notLogged.style.display = "block";
+      logged.style.display = "none";
+
+      message.textContent =
+        "Login is required before making a booking.";
+
+    }
+
+  }
+
+
+  /* =========================
+     AUTH MODAL
+  ========================= */
+
+  function openAuth(){
+
+    authModal.classList.add("show");
+
+  }
+
+
+  function closeModal(id){
+
+    document.getElementById(id)
+      .classList.remove("show");
+
+  }
+
+
+  document.querySelectorAll("[data-close]")
+    .forEach(button => {
+
+      button.addEventListener("click",() => {
+
+        closeModal(
+          button.dataset.close
         );
 
-        bookingCount.textContent = `${bookings.length} Booking${bookings.length === 1 ? "" : "s"}`;
+      });
 
-        bookingList.innerHTML = filtered.map((b, index) => `
-            <tr>
-                <td>${escapeHTML(b.name)}</td>
-                <td>${escapeHTML(b.table)}</td>
-                <td>${escapeHTML(b.date)}</td>
-                <td>${escapeHTML(b.time)}</td>
-                <td>${escapeHTML(b.people)}</td>
-                <td>${escapeHTML(b.duration)}</td>
-                <td><span class="status">Confirmed</span></td>
-                <td><button class="delete-booking" data-id="${escapeHTML(b.id)}">Delete</button></td>
-            </tr>
-        `).join("");
-
-        emptyBookings.style.display = filtered.length ? "none" : "block";
-
-        document.querySelectorAll(".delete-booking").forEach(button => {
-            button.addEventListener("click", () => {
-                const id = button.dataset.id;
-                const remaining = getBookings().filter(b => b.id !== id);
-                saveBookings(remaining);
-                renderBookings(bookingSearch.value);
-                showToast("Booking removed.");
-            });
-        });
-    }
-
-    // Booking form
-    form.addEventListener("submit", e => {
-        e.preventDefault();
-
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const table = document.getElementById("table").value;
-        const tableText = document.getElementById("table").selectedOptions[0].text;
-        const conversation = document.getElementById("chatbuddy").selectedOptions[0].text;
-        const date = document.getElementById("date").value;
-        const time = document.getElementById("time").value;
-        const duration = document.getElementById("duration").value;
-        const people = document.getElementById("people").value;
-        const addon = document.getElementById("addon").value;
-        const consent = document.getElementById("consent").checked;
-
-        if (!name || !email || !table || !date || !time || !duration) {
-            showToast("Please complete all required fields.");
-            return;
-        }
-
-        const selectedDate = new Date(date + "T00:00:00");
-        const today = new Date();
-        today.setHours(0,0,0,0);
-
-        if (selectedDate < today) {
-            showToast("Please select today or a future date.");
-            return;
-        }
-
-        const booking = {
-            id: Date.now().toString(),
-            name, email, phone,
-            table: tableText,
-            conversation,
-            date, time, duration, people, addon, consent,
-            createdAt: new Date().toISOString()
-        };
-
-        const bookings = getBookings();
-        bookings.push(booking);
-        saveBookings(bookings);
-        renderBookings();
-        form.reset();
-
-        showToast("Booking confirmed successfully!");
-
-        setTimeout(() => {
-            document.getElementById("bookings").scrollIntoView({behavior:"smooth"});
-        }, 400);
     });
 
-    // Search bookings
-    bookingSearch.addEventListener("input", () => renderBookings(bookingSearch.value));
 
-    // Prevent past dates
-    const dateInput = document.getElementById("date");
-    const todayISO = new Date().toISOString().split("T")[0];
-    dateInput.min = todayISO;
+  document.querySelectorAll(".auth-tab")
+    .forEach(tab => {
+
+      tab.addEventListener("click",() => {
+
+        document.querySelectorAll(".auth-tab")
+          .forEach(t =>
+            t.classList.remove("active")
+          );
+
+        document.querySelectorAll(".auth-form")
+          .forEach(f =>
+            f.classList.remove("active")
+          );
+
+        tab.classList.add("active");
+
+        document.getElementById(
+          tab.dataset.auth + "Form"
+        ).classList.add("active");
+
+      });
+
+    });
+
+
+  /* =========================
+     REGISTER
+  ========================= */
+
+  document.getElementById("registerForm")
+    .addEventListener("submit",e => {
+
+      e.preventDefault();
+
+      const name =
+        document.getElementById("registerName")
+          .value.trim();
+
+      const email =
+        document.getElementById("registerEmail")
+          .value.trim()
+          .toLowerCase();
+
+      const phone =
+        document.getElementById("registerPhone")
+          .value.trim();
+
+      const password =
+        document.getElementById("registerPassword")
+          .value;
+
+      const confirm =
+        document.getElementById("registerConfirm")
+          .value;
+
+
+      if(password !== confirm){
+
+        showToast("Passwords do not match.");
+
+        return;
+
+      }
+
+
+      const users = getUsers();
+
+      if(
+        users.some(
+          user => user.email === email
+        )
+      ){
+
+        showToast(
+          "An account with this email already exists."
+        );
+
+        return;
+
+      }
+
+
+      const newUser = {
+        id:"U" + Date.now(),
+        name,
+        email,
+        phone,
+        password
+      };
+
+
+      users.push(newUser);
+
+      saveUsers(users);
+
+
+      document.getElementById("loginEmail").value =
+        email;
+
+      document.getElementById("loginPassword").value =
+        password;
+
+
+      document.querySelector('[data-auth="login"]')
+        .click();
+
+
+      showToast(
+        "Account created! Please login."
+      );
+
+      e.target.reset();
+
+    });
+
+
+  /* =========================
+     LOGIN
+  ========================= */
+
+  document.getElementById("loginForm")
+    .addEventListener("submit",e => {
+
+      e.preventDefault();
+
+      const email =
+        document.getElementById("loginEmail")
+          .value.trim()
+          .toLowerCase();
+
+      const password =
+        document.getElementById("loginPassword")
+          .value;
+
+
+      const user =
+        getUsers().find(
+          u =>
+            u.email === email &&
+            u.password === password
+        );
+
+
+      if(!user){
+
+        showToast(
+          "Incorrect email or password."
+        );
+
+        return;
+
+      }
+
+
+      setCurrentUser({
+        id:user.id,
+        name:user.name,
+        email:user.email,
+        phone:user.phone
+      });
+
+
+      closeModal("authModal");
+
+      updateUserUI();
+
+      showToast(
+        `Welcome back, ${user.name.split(" ")[0]}!`
+      );
+
+
+      setTimeout(() => {
+
+        document.getElementById("booking")
+          .scrollIntoView({
+            behavior:"smooth"
+          });
+
+      },300);
+
+    });
+
+
+  /* =========================
+     LOGOUT
+  ========================= */
+
+  document.getElementById("logoutBtn")
+    .addEventListener("click",() => {
+
+      setCurrentUser(null);
+
+      updateUserUI();
+
+      showToast("You have been logged out.");
+
+    });
+
+
+  /* =========================
+     NAV BOOKING
+  ========================= */
+
+  document.getElementById("bookNav")
+    .addEventListener("click",e => {
+
+      if(!getCurrentUser()){
+
+        e.preventDefault();
+
+        openAuth();
+
+        return;
+
+      }
+
+    });
+
+
+  document.getElementById("heroBook")
+    .addEventListener("click",e => {
+
+      if(!getCurrentUser()){
+
+        e.preventDefault();
+
+        openAuth();
+
+      }
+
+    });
+
+
+  document.getElementById("historyNav")
+    .addEventListener("click",e => {
+
+      if(!getCurrentUser()){
+
+        e.preventDefault();
+
+        openAuth();
+
+      }
+
+    });
+
+
+  document.getElementById("loginFromHistory")
+    .addEventListener("click",openAuth);
+
+
+  /* =========================
+     NAVIGATION
+  ========================= */
+
+  function updateNavigation(){
+
+    header.classList.toggle(
+      "scrolled",
+      window.scrollY > 30
+    );
+
+    topBtn.classList.toggle(
+      "show",
+      window.scrollY > 500
+    );
+
+
+    let current = "home";
+
+    sections.forEach(section => {
+
+      if(
+        section.getBoundingClientRect().top <= 140
+      ){
+        current = section.id;
+      }
+
+    });
+
+
+    navLinks.forEach(link => {
+
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === "#" + current
+      );
+
+    });
+
+  }
+
+
+  window.addEventListener(
+    "scroll",
+    updateNavigation
+  );
+
+
+  navLinks.forEach(link => {
+
+    link.addEventListener("click",e => {
+
+      const target =
+        document.querySelector(
+          link.getAttribute("href")
+        );
+
+      if(!target) return;
+
+      e.preventDefault();
+
+      const y =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        header.offsetHeight -
+        8;
+
+      window.scrollTo({
+        top:y,
+        behavior:"smooth"
+      });
+
+    });
+
+  });
+
+
+  topBtn.addEventListener("click",() => {
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  });
+
+
+  /* =========================
+     STORY TABLE BUTTONS
+  ========================= */
+
+  document.querySelectorAll("[data-table]")
+    .forEach(link => {
+
+      link.addEventListener("click",e => {
+
+        if(!getCurrentUser()){
+
+          e.preventDefault();
+
+          openAuth();
+
+          return;
+
+        }
+
+        const tableSelect =
+          document.getElementById("table");
+
+        tableSelect.value =
+          link.dataset.table;
+
+      });
+
+    });
+
+
+  /* =========================
+     MENU FILTER
+  ========================= */
+
+  const menuSearch =
+    document.getElementById("menuSearch");
+
+  const categoryButtons =
+    document.querySelectorAll(".category-btn");
+
+  const menuItems =
+    document.querySelectorAll(".menu-item");
+
+  function filterMenu(){
+
+    const query =
+      menuSearch.value.toLowerCase().trim();
+
+    let visible = 0;
+
+
+    menuItems.forEach(item => {
+
+      const category =
+        item.dataset.category;
+
+      const name =
+        item.dataset.name.toLowerCase();
+
+      const matchesCategory =
+        activeCategory === "all" ||
+        category === activeCategory;
+
+      const matchesSearch =
+        name.includes(query) ||
+        item.textContent
+          .toLowerCase()
+          .includes(query);
+
+
+      if(matchesCategory && matchesSearch){
+
+        item.style.display = "";
+
+        visible++;
+
+      }
+      else{
+
+        item.style.display = "none";
+
+      }
+
+    });
+
+
+    document.getElementById("menuEmpty")
+      .style.display =
+      visible ? "none" : "block";
+
+  }
+
+
+  menuSearch.addEventListener(
+    "input",
+    filterMenu
+  );
+
+
+  categoryButtons.forEach(button => {
+
+    button.addEventListener("click",() => {
+
+      categoryButtons.forEach(b =>
+        b.classList.remove("active")
+      );
+
+      button.classList.add("active");
+
+      activeCategory =
+        button.dataset.category;
+
+      filterMenu();
+
+    });
+
+  });
+
+
+  /* =========================
+     TOTAL PRICE
+  ========================= */
+
+  function calculateTotal(){
+
+    const durationPrice =
+      Number(
+        durationInput.selectedOptions[0]
+          ?.dataset.price || 0
+      );
+
+    const addonPrice =
+      Number(
+        addonInput.selectedOptions[0]
+          ?.dataset.price || 0
+      );
+
+
+    totalPrice.textContent =
+      `₹${durationPrice + addonPrice}`;
+
+  }
+
+
+  durationInput.addEventListener(
+    "change",
+    calculateTotal
+  );
+
+  addonInput.addEventListener(
+    "change",
+    calculateTotal
+  );
+
+
+  /* =========================
+     DATE
+  ========================= */
+
+  const now = new Date();
+
+  const localDate =
+    new Date(
+      now.getTime() -
+      now.getTimezoneOffset()*60000
+    )
+    .toISOString()
+    .split("T")[0];
+
+  dateInput.min = localDate;
+
+
+  /* =========================
+     TIME CONVERSION
+  ========================= */
+
+  function convertTime(time){
+
+    const times = {
+      "11:00 AM":"11:00",
+      "1:00 PM":"13:00",
+      "3:00 PM":"15:00",
+      "5:00 PM":"17:00",
+      "7:00 PM":"19:00",
+      "9:00 PM":"21:00"
+    };
+
+    return times[time] || "";
+
+  }
+
+
+  function getBookingDateTime(booking){
+
+    return new Date(
+      `${booking.date}T${convertTime(booking.time)}:00`
+    );
+
+  }
+
+
+  /* =========================
+     DOUBLE BOOKING CHECK
+  ========================= */
+
+  function isAlreadyBooked(
+    date,
+    time,
+    table
+  ){
+
+    const bookings =
+      getBookings();
+
+    return bookings.some(b =>
+
+      b.date === date &&
+      b.time === time &&
+      b.table === table &&
+      b.status !== "Cancelled"
+
+    );
+
+  }
+
+
+  /* =========================
+     BOOKING ID
+  ========================= */
+
+  function generateBookingID(){
+
+    const date =
+      new Date();
+
+    const datePart =
+      date.toISOString()
+        .slice(0,10)
+        .replaceAll("-","");
+
+    const random =
+      Math.floor(
+        100 + Math.random()*900
+      );
+
+    return `MC-${datePart}-${random}`;
+
+  }
+
+
+  /* =========================
+     BOOKING SUBMIT
+  ========================= */
+
+  form.addEventListener("submit",e => {
+
+    e.preventDefault();
+
+
+    const user =
+      getCurrentUser();
+
+
+    if(!user){
+
+      openAuth();
+
+      return;
+
+    }
+
+
+    const name =
+      document.getElementById("name")
+        .value.trim();
+
+    const email =
+      document.getElementById("email")
+        .value.trim();
+
+    const phone =
+      document.getElementById("phone")
+        .value.trim();
+
+    const table =
+      document.getElementById("table")
+        .value;
+
+    const conversation =
+      document.getElementById("chatbuddy")
+        .value;
+
+    const date =
+      dateInput.value;
+
+    const time =
+      document.getElementById("time")
+        .value;
+
+    const duration =
+      durationInput.value;
+
+    const people =
+      document.getElementById("people")
+        .value;
+
+    const addon =
+      addonInput.value;
+
+    const consent =
+      document.getElementById("consent")
+        .checked;
+
+
+    if(
+      !name ||
+      !email ||
+      !table ||
+      !conversation ||
+      !date ||
+      !time ||
+      !duration
+    ){
+
+      showToast(
+        "Please complete all required fields."
+      );
+
+      return;
+
+    }
+
+
+    const selectedDate =
+      new Date(
+        date +
+        "T" +
+        convertTime(time) +
+        ":00"
+      );
+
+
+    const current =
+      new Date();
+
+
+    if(selectedDate <= current){
+
+      showToast(
+        "Please select a future date and time."
+      );
+
+      return;
+
+    }
+
+
+    if(
+      isAlreadyBooked(
+        date,
+        time,
+        table
+      )
+    ){
+
+      showToast(
+        "This Story Table is already booked for that time."
+      );
+
+      return;
+
+    }
+
+
+    const durationPrice =
+      Number(
+        durationInput.selectedOptions[0]
+          ?.dataset.price || 0
+      );
+
+    const addonPrice =
+      Number(
+        addonInput.selectedOptions[0]
+          ?.dataset.price || 0
+      );
+
+    const total =
+      durationPrice + addonPrice;
+
+
+    const booking = {
+
+      id:generateBookingID(),
+
+      userId:user.id,
+
+      name,
+      email,
+      phone,
+
+      table,
+      conversation,
+
+      date,
+      time,
+
+      duration,
+      people,
+
+      addon,
+
+      consent,
+
+      total:`₹${total}`,
+
+      status:"Confirmed",
+
+      createdAt:
+        new Date().toISOString()
+
+    };
+
+
+    const bookings =
+      getBookings();
+
+    bookings.push(booking);
+
+    saveBookings(bookings);
+
 
     renderBookings();
+
+
+    form.reset();
+
+
+    document.getElementById("name").value =
+      user.name;
+
+    document.getElementById("email").value =
+      user.email;
+
+    document.getElementById("phone").value =
+      user.phone || "";
+
+
+    document.getElementById("people").value =
+      1;
+
+
+    calculateTotal();
+
+
+    showConfirmation(booking);
+
+
+  });
+
+
+  /* =========================
+     RENDER BOOKINGS
+  ========================= */
+
+  function renderBookings(filter=""){
+
+    const user =
+      getCurrentUser();
+
+    if(!user) return;
+
+
+    const bookings =
+      getBookings()
+        .filter(
+          b => b.userId === user.id
+        );
+
+
+    const query =
+      filter.toLowerCase().trim();
+
+
+    const filtered =
+      bookings.filter(b =>
+
+        [
+          b.id,
+          b.name,
+          b.table,
+          b.conversation,
+          b.date,
+          b.time,
+          b.people,
+          b.duration,
+          b.addon,
+          b.total,
+          b.status
+        ]
+        .join(" ")
+        .toLowerCase()
+        .includes(query)
+
+      );
+
+
+    bookingCount.textContent =
+      `${bookings.length} Booking${
+        bookings.length === 1 ? "" : "s"
+      }`;
+
+
+    bookingList.innerHTML =
+      filtered.map(b => `
+
+        <tr>
+
+          <td>
+            <strong>${escapeHTML(b.id)}</strong>
+          </td>
+
+          <td>
+            ${escapeHTML(b.table)}
+          </td>
+
+          <td>
+            ${escapeHTML(b.date)}
+          </td>
+
+          <td>
+            ${escapeHTML(b.time)}
+          </td>
+
+          <td>
+            ${escapeHTML(b.people)}
+          </td>
+
+          <td>
+            ${escapeHTML(b.duration)}
+          </td>
+
+          <td>
+            <strong>${escapeHTML(b.total)}</strong>
+          </td>
+
+          <td>
+            <span class="status ${
+              b.status === "Cancelled"
+                ? "cancelled"
+                : ""
+            }">
+              ${escapeHTML(b.status)}
+            </span>
+          </td>
+
+          <td>
+
+            <button
+              class="btn secondary view-booking"
+              data-id="${escapeHTML(b.id)}">
+              View
+            </button>
+
+            ${
+              b.status !== "Cancelled"
+              ? `
+                <button
+                  class="btn danger cancel-booking"
+                  data-id="${escapeHTML(b.id)}">
+                  Cancel
+                </button>
+              `
+              : ""
+            }
+
+          </td>
+
+        </tr>
+
+      `).join("");
+
+
+    emptyBookings.style.display =
+      filtered.length
+        ? "none"
+        : "block";
+
+
+    document.querySelectorAll(".view-booking")
+      .forEach(button => {
+
+        button.addEventListener("click",() => {
+
+          showBookingDetails(
+            button.dataset.id
+          );
+
+        });
+
+      });
+
+
+    document.querySelectorAll(".cancel-booking")
+      .forEach(button => {
+
+        button.addEventListener("click",() => {
+
+          cancelBooking(
+            button.dataset.id
+          );
+
+        });
+
+      });
+
+  }
+
+
+  /* =========================
+     BOOKING DETAILS
+  ========================= */
+
+  function showBookingDetails(id){
+
+    const booking =
+      getBookings().find(
+        b => b.id === id
+      );
+
+
+    if(!booking) return;
+
+
+    let cancellationHTML = "";
+
+
+    if(booking.status === "Cancelled"){
+
+      cancellationHTML = `
+
+        <div class="policy-box">
+
+          <strong>Cancellation Details</strong>
+
+          <br><br>
+
+          Cancellation Fee:
+          ${escapeHTML(
+            booking.cancellationFee || "₹0"
+          )}
+
+          <br>
+
+          Refund:
+          <span class="refund">
+            ${escapeHTML(
+              booking.refund || "₹0"
+            )}
+          </span>
+
+        </div>
+
+      `;
+
+    }
+
+
+    document.getElementById(
+      "bookingDetailsContent"
+    ).innerHTML = `
+
+      <div class="detail-row">
+        <strong>Booking ID</strong>
+        <span>${escapeHTML(booking.id)}</span>
+      </div>
+
+      <div class="detail-row">
+        <strong>Name</strong>
+        <span>${escapeHTML(booking.name)}</span>
+      </div>
+
+      <div class="detail-row">
+        <strong>Email</strong>
+        <span>${escapeHTML(booking.email)}</span>
+      </div>
+
+      <div class="detail-row">
+        <strong>Phone</strong>
+        <span>${escapeHTML(booking.phone || "Not provided")}</span>
+      </div>
+
+      <div class="detail-row">
+        <strong>Story Table</strong>
+        <span>${escapeHTML(booking.table)}</span>
+      </div>
+
+      <div class="detail-row">
+        <strong>Conversation</strong>
+        <span>${escapeHTML(booking.conversation)}</span>
+      </div>
+
+      <div class="detail-row">
+        <strong>Date</strong>
+        <span>${escapeHTML(booking.date)}</span>
+      </div>
+
+      <div class="detail-row">
+        <strong>Time</strong>
+        <span>${escapeHTML(booking.time)}</span>
+      </div>
+
+      <div class="detail-row">
+        <strong>People</strong>
+        <span>${escapeHTML(booking.people)}</span>
+      </div>
+
+      <div class="detail-row">
+        <strong>Duration</strong>
+        <span>${escapeHTML(booking.duration)}</span>
+      </div>
+
+      <div class="detail-row">
+        <strong>Add-On</strong>
+        <span>${escapeHTML(booking.addon)}</span>
+      </div>
+
+      <div class="detail-row">
+        <strong>Total</strong>
+        <strong>${escapeHTML(booking.total)}</strong>
+      </div>
+
+      <div class="detail-row">
+        <strong>Status</strong>
+        <span>${escapeHTML(booking.status)}</span>
+      </div>
+
+      ${cancellationHTML}
+
+    `;
+
+
+    document.getElementById(
+      "detailsModal"
+    ).classList.add("show");
+
+  }
+
+
+  /* =========================
+     CANCELLATION
+  ========================= */
+
+  function cancelBooking(id){
+
+    const bookings =
+      getBookings();
+
+    const index =
+      bookings.findIndex(
+        b => b.id === id
+      );
+
+
+    if(index === -1) return;
+
+
+    const booking =
+      bookings[index];
+
+
+    if(booking.status === "Cancelled"){
+
+      showToast(
+        "This booking is already cancelled."
+      );
+
+      return;
+
+    }
+
+
+    const bookingDateTime =
+      getBookingDateTime(booking);
+
+    const current =
+      new Date();
+
+
+    const difference =
+      bookingDateTime - current;
+
+    const hoursLeft =
+      difference /
+      (1000 * 60 * 60);
+
+
+    const originalTotal =
+      Number(
+        String(booking.total)
+          .replace("₹","")
+      );
+
+
+    let cancellationFee = 0;
+    let refund = 0;
+
+
+    if(hoursLeft >= 24){
+
+      cancellationFee = 50;
+
+      refund =
+        Math.max(
+          0,
+          originalTotal - 50
+        );
+
+    }
+    else{
+
+      cancellationFee = originalTotal;
+
+      refund = 0;
+
+    }
+
+
+    const confirmMessage =
+      hoursLeft >= 24
+
+      ? `Cancel this booking?\n\n` +
+        `Cancellation fee: ₹50\n` +
+        `Refund: ₹${refund}`
+
+      : `Cancel this booking?\n\n` +
+        `This booking is less than 24 hours away.\n` +
+        `Refund: ₹0`;
+
+
+    if(!confirm(confirmMessage)){
+
+      return;
+
+    }
+
+
+    booking.status =
+      "Cancelled";
+
+    booking.cancellationFee =
+      `₹${cancellationFee}`;
+
+    booking.refund =
+      `₹${refund}`;
+
+    booking.cancelledAt =
+      new Date().toISOString();
+
+
+    bookings[index] =
+      booking;
+
+    saveBookings(bookings);
+
+
+    renderBookings(
+      bookingSearch.value
+    );
+
+
+    showToast(
+      `Booking cancelled. Refund: ₹${refund}`
+    );
+
+  }
+
+
+  /* =========================
+     CONFIRMATION
+  ========================= */
+
+  function showConfirmation(booking){
+
+    document.getElementById(
+      "confirmationContent"
+    ).innerHTML = `
+
+      <div class="policy-box">
+
+        <strong>Booking ID</strong>
+        <br>
+        ${escapeHTML(booking.id)}
+
+        <br><br>
+
+        <strong>${escapeHTML(booking.table)}</strong>
+
+        <br>
+
+        ${escapeHTML(booking.date)}
+        •
+        ${escapeHTML(booking.time)}
+
+        <br>
+
+        ${escapeHTML(booking.people)}
+        People
+        •
+        ${escapeHTML(booking.duration)}
+
+        <br><br>
+
+        Add-On:
+        ${escapeHTML(booking.addon)}
+
+        <br><br>
+
+        <strong>Total: ${escapeHTML(booking.total)}</strong>
+
+      </div>
+
+    `;
+
+
+    document.getElementById(
+      "confirmationModal"
+    ).classList.add("show");
+
+
+    setTimeout(() => {
+
+      document.getElementById("bookings")
+        .scrollIntoView({
+          behavior:"smooth"
+        });
+
+    },1500);
+
+  }
+
+
+  /* =========================
+     BOOKING SEARCH
+  ========================= */
+
+  bookingSearch.addEventListener(
+    "input",
+    () => {
+
+      renderBookings(
+        bookingSearch.value
+      );
+
+    }
+  );
+
+
+  /* =========================
+     REVEAL ANIMATION
+  ========================= */
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if(entry.isIntersecting){
+
+            entry.target.classList.add(
+              "visible"
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+      {threshold:.12}
+    );
+
+
+  document.querySelectorAll(".reveal")
+    .forEach(el =>
+      observer.observe(el)
+    );
+
+
+  /* =========================
+     CLOSE MODAL ON BACKGROUND
+  ========================= */
+
+  document.querySelectorAll(".modal")
+    .forEach(modal => {
+
+      modal.addEventListener("click",e => {
+
+        if(e.target === modal){
+
+          modal.classList.remove("show");
+
+        }
+
+      });
+
+    });
+
+
+  /* =========================
+     START
+  ========================= */
+
+  calculateTotal();
+
+  updateUserUI();
+
+  updateNavigation();
+
 });
+
 </script>
 
-    </body>
+</body>
 </html>
